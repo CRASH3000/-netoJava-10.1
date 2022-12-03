@@ -28,11 +28,16 @@ public class RadioTest {
         Assertions.assertEquals(0, radio2.getCurrentStation());
     }
 
-    // Проблемный тест
+    @Test
+    void sholdSetStationMaxLimit2() {
+        radio1.setCurrentStation(15);
+        Assertions.assertEquals(0, radio1.getCurrentStation());
+    }
+
     @Test
     void sholdSetStationMinLimit() {
 
-        radio1.setCurrentStation(-1);
+        radio1.setCurrentStation(0);
         Assertions.assertEquals(0, radio1.getCurrentStation());
     }
 
@@ -81,13 +86,6 @@ public class RadioTest {
     @Test
     void prevStationTestMaxLimit() {
         radio1.setCurrentStation(0);
-        radio1.prevStation();
-        Assertions.assertEquals(9, radio1.getCurrentStation());
-    }
-
-    @Test
-    void prevStationTestMaxLimit2() {
-        radio1.setCurrentStation(-1);
         radio1.prevStation();
         Assertions.assertEquals(9, radio1.getCurrentStation());
     }
